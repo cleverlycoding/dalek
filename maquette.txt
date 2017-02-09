@@ -1,0 +1,54 @@
+-------- Menu ----------
+bienvenue jeu dalek!
+
+C pour commencer partie
+S pour tableau des scores
+Q pour quitter
+
+-------- Menu ----------
+
+
+-------- Diff ----------
+bienvenue jeu dalek!
+
+F pour facile
+O pour ordinaire
+D pour difficile
+
+-------- Diff----------
+
+
+T - tas de feraille
+D - dalek
+W - Docteur
+-------- Jeu ----------
+* * * * * * * D * * * *
+* * D * * * * * * * * *
+* * * * * * * * * * D *
+* * T * * P * * * * * *
+* * * * * * * * * * * *
+* * * * * * * * D * * *
+* D * * * * * * * * * *
+* * * * * * * * * * * *
+Zappeur (Z): 1
+Télétransporteur (T)
+Déplacement(S, N, O, E, NO, NE, SO, SE)
+Action : NO
+-------- Jeu ----------
+
+-------- Score --------
+
+1. jean - 9000 points
+2. jean - 8235 points
+3. jean - 2395 points
+4. jean - 25 points 
+
+-------- Score --------
+
+
+
+
+
+
+
+
