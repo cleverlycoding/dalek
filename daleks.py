@@ -22,6 +22,9 @@ class Daleks():
                     break
         
     def bouger(self, grille):
+        if self.peuBouger == False:
+            return
+
         for i in range(0, grille.w - 1):
             for j in range(0, grille.h - 1):
                 if grille.get_pos(i, j) == "W":
@@ -38,6 +41,7 @@ class Daleks():
                         pass
                     else:
                         self.y-=1
+                        
                     if self.y > grille.h-1:
                         self.y = grille.h-1
                     if self.y < 0:
