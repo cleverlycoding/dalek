@@ -1,3 +1,5 @@
+import random
+
 class Docteur():
    
     def __init__(self, w, h):
@@ -6,10 +8,13 @@ class Docteur():
         self.symbole='W'
         self.vie=True
         self.peuBouger=True
-        self.nbZappeur=0
+        self.nbZappeur=2
         self.nbPoints=0
+        self.posiInit=None
+        self.posiFinal=None
         
-    def bouger(self, move):
+    def bouger(self, move, grille, w, h):
+        self.posiInit = [self.x, self.y]
         if move=='N':
             self.y-=1
         elif move=='S':
@@ -30,15 +35,22 @@ class Docteur():
         elif move=="SO":
             self.x-=1
             self.y+=1
+        elif move=="T":
+            self.teleporte(w, h, "E", grille)
+        elif move=="Z":
+            self.zap(grille)
         else:
             pass
+        self.posiFinal = [self.x, self.y]
             
         
     def zap(self, grille):
-        for i in range(self.x-1, self.x+1):
-            for j in range(self.y-1, self.y+1):
-                if grille[i][j].symbole=='D':
-                    grille[i][j].meurt
+        if self.nbZappeur > 0:
+            for i in range(self.x-1, self.x+1):
+                for j in range(self.y-1, self.y+1):
+                    if grille[i][j].symbole=='D':
+                        grille[i][j].meurt
+        nbZappeur -=1				
     
     def ajouteZap(self):
         self.nbZappeur+=1
@@ -47,7 +59,7 @@ class Docteur():
        
         while True:
             x=random.randint(0,w)
-            y=random.randit(0,h)
+            y=random.randint(0,h)
             
             if diff=='E':
                 nbDaleks = 0

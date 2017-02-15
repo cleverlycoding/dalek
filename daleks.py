@@ -5,6 +5,8 @@ class Daleks():
         self.symbole='D'
         self.vie=True
         self.peuBouger=True  
+        self.posiInit=None
+        self.posiFinal=None
     
     def meurt(self):
         self.vie=False
@@ -22,6 +24,8 @@ class Daleks():
                     break
         
     def bouger(self, grille):
+        self.posiInit = [self.x, self.y]
+		
         if self.peuBouger == False:
             return
 
@@ -50,3 +54,4 @@ class Daleks():
                         self.x = grille.w-1
                     if self.x < 0:
                         self.x = 0
+        self.posiFinal = [self.x, self.y]				

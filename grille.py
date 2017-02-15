@@ -37,7 +37,7 @@ class Grille():
 
 	def move(self, rep):
 		self._grid[self.docteur.y][self.docteur.x] = "*"
-		self.docteur.bouger(rep)
+		self.docteur.bouger(rep, self._grid, self.w, self.h)
 		self._grid[self.docteur.y][self.docteur.x] = self.docteur.symbole
 
 		for i in self.daleks:
@@ -47,6 +47,15 @@ class Grille():
 			print(i.x, i.y, self.get_pos(i.x, i.y))
 			self._grid[i.x][i.y] = i.symbole
 
-
+		for i in range(0, self.nb_dalek - 1):
+			for j in range(0, self.nb_dalek - 1):
+				if self.daleks[i].posiInit[0] != self.daleks[j].posiInit[0] and self.daleks[i].posiInit[1] != self.daleks[j].posiInit[1]:
+					if self.daleks[i].posiFinal[0] == self.daleks[j].posiFinal[0] and self.daleks[i].posiFinal[1] == self.daleks[j].posiFinal[1]:
+						self.daleks[i].meurt()
+						self.daleks[j].meurt()	
+						
+		
+					
+						
 	def get(self):
 		return self._grid
