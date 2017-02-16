@@ -1,5 +1,5 @@
 from docteur import Docteur
-from daleks import Daleks
+from dalek import Dalek
 
 class Grille():
 
@@ -16,7 +16,7 @@ class Grille():
 
 		self._grid = [["*" for _ in range(w)] for _ in range(h)]
 		self.nb_dalek = 5
-		self.daleks = [Daleks() for i in range(self.nb_dalek)]
+		self.daleks = [Dalek() for i in range(self.nb_dalek)]
 		for i in self.daleks:
 			i.positionner(self)
 			self._grid[i.x][i.y] = i.symbole
@@ -41,18 +41,16 @@ class Grille():
 		self._grid[self.docteur.y][self.docteur.x] = self.docteur.symbole
 
 		for i in self.daleks:
-			print(i.x, i.y, self.get_pos(i.x, i.y))
 			self._grid[i.x][i.y] = "*"
 			i.bouger(self)
-			print(i.x, i.y, self.get_pos(i.x, i.y))
 			self._grid[i.x][i.y] = i.symbole
 
-		for i in range(0, self.nb_dalek - 1):
-			for j in range(0, self.nb_dalek - 1):
-				if self.daleks[i].posiInit[0] != self.daleks[j].posiInit[0] and self.daleks[i].posiInit[1] != self.daleks[j].posiInit[1]:
-					if self.daleks[i].posiFinal[0] == self.daleks[j].posiFinal[0] and self.daleks[i].posiFinal[1] == self.daleks[j].posiFinal[1]:
-						self.daleks[i].meurt()
-						self.daleks[j].meurt()	
+		for i in self.daleks:
+			for j in self.daleks:
+				if i.pos_initiale[0] != j.pos_initiale[0] and i.pos_initiale[1] != j.pos_initiale[1]:
+					if i.pos_finale[0] != j.pos_finale[0] and i.pos_finale[1] != j.pos_finale[1]:
+						i.meurt()
+						j.meurt()	
 						
 		
 					
